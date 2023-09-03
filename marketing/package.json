@@ -2,8 +2,9 @@
   "name": "marketing",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack serve --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js"
+    "dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack serve --config config/webpack.dev.js",
+    "build": "rm -r dist && PRODUCTION_DOMAIN='localhost:8080' NODE_OPTIONS='--openssl-legacy-provider' webpack --config config/webpack.prod.js && cp public/index.html dist/index.html ",
+    "start": "pm2 start ./dist -- --port 1520"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",

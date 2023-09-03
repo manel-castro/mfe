@@ -2,8 +2,9 @@
   "name": "auth",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack serve --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js"
+    "dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack serve --config config/webpack.dev.js",
+    "build": "PRODUCTION_DOMAIN='localhost:8080' NODE_OPTIONS='--openssl-legacy-provider' webpack --config config/webpack.prod.js",
+    "start": "node "
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
